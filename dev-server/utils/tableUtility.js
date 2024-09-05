@@ -1,0 +1,1 @@
+const flattenObject = require('./flattenObject');

@@ -1,0 +1,32 @@
+# modules #
+node_modules/
+build/
+dist/
+
+# test #
+coverage/
+
+# OS generated files #
+.DS_Store
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs #
+logs
+*.log
+*.log.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env variables #
+.env
