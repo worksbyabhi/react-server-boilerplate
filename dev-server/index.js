@@ -7,15 +7,21 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
+const loginRoute = require('./routes/auth/login');
+const logoutRoute = require('./routes/auth/logout');
+const sessionRoute = require('./routes/auth/session');
 const userRoute = require('./routes/user');
 
 const checkSessionCookie = function (req, res, next) {
   // either string or undefined
-  let cookieToCheck = '';
+  let cookieToCheck = 'X-token';
   const availableCookie = req.cookies[cookieToCheck];
   if (availableCookie) {
-    res.cookie(cookieToCheck, availableCookie, { maxAge: 30 * 60 * 1000 });
-    res.setHeader('COSMOS-Session-expiry', Date.now() + 30 * 60 * 1000);
+    res.cookie(cookieToCheck, availableCookie, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 30 * 60 * 1000,
+    });
     next();
   } else {
     res.send(401);
@@ -60,7 +66,13 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(checkSessionCookie);
+// Api routes
+app.use('/login', loginRoute);
+app.use('/session', sessionRoute);
+
+// Protected Api routes
+app.use(checkSessionCookie);
+app.use('/logout', logoutRoute);
 
 app.use('/users', userRoute);
 
