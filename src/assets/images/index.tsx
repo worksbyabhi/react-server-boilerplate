@@ -1,1 +1,1 @@
-export * from "./LinkArrow";
+export * from './LinkArrow';

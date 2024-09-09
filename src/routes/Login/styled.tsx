@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { GridColumn } from "../../designSystem/grid";
+import styled from 'styled-components';
+
+import { GridColumn } from '../../designSystem/grid';
 
 export const StyledLoginWrapper = styled(GridColumn)`
   min-height: 100vh;
