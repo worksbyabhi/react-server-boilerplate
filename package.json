@@ -47,10 +47,8 @@
     "buffer": "^6.0.3",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "concurrently": "^8.2.2",
-    "cors": "^2.8.5",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
-    "dotenv": "^16.0.3",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -81,8 +79,8 @@
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
     "stream-http": "^3.2.0",
-    "styled-components": "^6.1.13",
     "style-loader": "^3.3.1",
+    "styled-components": "^6.1.13",
     "ts-jest": "^29.0.5",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
@@ -112,9 +110,11 @@
     ]
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
-    "helmet": "^7.1.0"
+    "jsonwebtoken": "^9.0.2"
   }
 }

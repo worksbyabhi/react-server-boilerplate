@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const compress = require('compression');
 const cookieParser = require('cookie-parser');
-const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 require('dotenv').config();
@@ -30,8 +29,6 @@ const checkSessionCookie = function (req, res, next) {
 
 const app = express();
 
-app.disable('etag');
-
 app.use(cookieParser());
 
 // set up CORS
@@ -51,7 +48,7 @@ app.use(
       if (whitelist.indexOf(origin) !== -1 || !origin) {
         callback(null, true);
       } else {
-        callback(new Error(' not allowed by CORS'));
+        callback(new Error('not allowed by CORS'));
       }
     },
   })
@@ -59,9 +56,6 @@ app.use(
 
 // Compress responses with gzip
 app.use(compress());
-
-// Add some default security layer
-app.use(helmet());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
